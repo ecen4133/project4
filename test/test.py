@@ -88,8 +88,8 @@ if __name__ == '__main__':
         print("usage: %s DIR TARGET" % (sys.argv[0]), file=sys.stderr)
         sys.exit(-1)
 
-    subprocess.check_output(['make', 'clean'])
-    subprocess.check_output(["sudo", "make"])
+    #subprocess.check_output(['make', 'clean'])
+    #subprocess.check_output(["sudo", "make"])
 
 
     grade = grade_app(sys.argv[1], int(sys.argv[2]))
@@ -104,10 +104,3 @@ if __name__ == '__main__':
         comment = "no submission"
 
     print("Result: %s" % comment)
-
-
-    try:
-        kill_code = subprocess.check_call(["pkill", "-f", "/bin/sh"])
-        kill_code = subprocess.check_call(["pkill", '-f', '/bin//sh'])
-    except:
-        pass
