@@ -4,7 +4,7 @@ FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get install -y curl tar build-essential python3 sudo gcc-multilib gdb
+RUN apt-get install -y curl tar build-essential python3 sudo gcc-multilib gdb libcap2-bin
 
 # Make user ubuntu
 RUN useradd -m -s /bin/bash -G sudo ubuntu && echo 'ubuntu ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
