@@ -18,6 +18,9 @@ If you get an error like `permission denied while trying to connect to the Docke
 `docker run --privileged -it -v ./:/home/ubuntu/project4 project4`
 
 
+Mac may need to provide: `--platform linux/amd64`
+
+
 
 
 
