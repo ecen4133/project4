@@ -10,6 +10,8 @@ int main(int argc, char *argv[], char *envp[])
 {
 	volatile int canary = 0xDEADBEEF;
 
+	setuid(0);
+
 	// Check if ASLR is on. If it is, disable and re-run
 	if ((void*)(&canary) < (void*)(0xffffc000)) {
 		if (personality(PER_LINUX|ADDR_NO_RANDOMIZE) == -1) {
@@ -17,6 +19,8 @@ int main(int argc, char *argv[], char *envp[])
 			return 1;
 		}
 
+		//printf("Rerruning...%p\n", &canary);
+		//fflush(stdout);
 		execve(argv[0], argv, envp);
 		perror("Error: execve");
 		return 1;
@@ -34,7 +38,6 @@ int main(int argc, char *argv[], char *envp[])
 	alloca(COOKIE);
 #endif
 
-	setuid(0);
 	int ret = _main(argc, argv, envp);
 
 	if (canary != 0xDEADBEEF) {
