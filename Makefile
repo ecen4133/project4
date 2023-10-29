@@ -3,7 +3,7 @@
 #
 
 CC := gcc
-CFLAGS := -w -m32 -static -U_FORTIFY_SOURCE -DCOOKIE=$(shell cat cookie)
+CFLAGS := -w -m32 -static -U_FORTIFY_SOURCE -fno-pie -DCOOKIE=$(shell cat cookie) -g
 LDFLAGS :=
 LDLIBS :=
 
@@ -39,5 +39,13 @@ clean:
 	rm -f $(targets)
 
 permissions:
-	sudo chown root:ubuntu target[23456789]
-	sudo chmod 6777 target[23456789]
+	sudo setcap cap_setuid+ep target2
+	sudo setcap cap_setuid+ep target3
+	sudo setcap cap_setuid+ep target4
+	sudo setcap cap_setuid+ep target5
+	sudo setcap cap_setuid+ep target6
+	sudo setcap cap_setuid+ep target7
+	sudo setcap cap_setuid+ep target8
+	sudo setcap cap_setuid+ep target9
+	#sudo chown root:ubuntu target[23456789]
+	#sudo chmod 6777 target[23456789]

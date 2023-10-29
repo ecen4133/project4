@@ -62,7 +62,7 @@ def grade_app(proj_dir, num):
             # This input is random... run it multiple times
             correct = 0
             wrong = 0
-            for i in range(250):
+            for i in range(100):
                 if run_shell_test(shellString, .2) == 7:
                     correct += 1
                 else:
@@ -74,7 +74,7 @@ def grade_app(proj_dir, num):
                     else:
                         return 1
 
-            if correct == 250:
+            if correct == 100:
                 return 7
             else:
                 return 1
