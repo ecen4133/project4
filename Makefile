@@ -3,7 +3,7 @@
 #
 
 CC := gcc
-CFLAGS := -w -m32 -static -U_FORTIFY_SOURCE -fno-pie -DCOOKIE=$(shell cat cookie) -g
+CFLAGS := -w -m32 -static -U_FORTIFY_SOURCE -fno-pie -DCOOKIE=$(shell cat cookie) -g -Wno-error=implicit-function-declaration
 LDFLAGS :=
 LDLIBS :=
 

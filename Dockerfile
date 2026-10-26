@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 # tzdata tries to start a conversation on apt install, tell it no
 ARG DEBIAN_FRONTEND=noninteractive
